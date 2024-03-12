@@ -73,3 +73,16 @@ app.get('/protected', authenticateToken, (req, res) => {
 app.get('/', (req, res) => {
 	res.status(200).send('Success')
 })
+
+
+app.get('/isDatabaseAsExpected', async (req,res) => {
+  const result = await new Promise((resolve, reject) => {
+    db.get('SELECT name FROM sqlite_master WHERE type="table" AND name="users"', (err, row) => {
+      if (err) reject(err);
+      resolve(row);
+    });
+  });
+
+
+  res.status(200).send(result)
+})
