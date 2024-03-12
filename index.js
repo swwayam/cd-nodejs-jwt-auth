@@ -1,12 +1,8 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const sqlite3 = require('sqlite3').verbose();
+// Module 1: Initializing the Node.js Server
 
-const app = express();
-app.use(express.json());
 
-// Module 1: Setting Up the SQLite Database
+
+// Module 2: Setting Up the SQLite Database
 const db = new sqlite3.Database('./jwtAuth.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
   
   console.log('Connected to the SQLite database.');
@@ -17,11 +13,8 @@ db.serialize(() => {
   
 });
 
-// Module 2: Initializing the Node.js Server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+
 
 // Module 3: Implementing User Registration
 app.post('/register', async (req, res) => {
