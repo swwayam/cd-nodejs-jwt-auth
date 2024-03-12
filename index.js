@@ -3,15 +3,15 @@
 
 
 // Module 2: Setting Up the SQLite Database
-// const db = new sqlite3.Database('./jwtAuth.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+const db = new sqlite3.Database('./jwtAuth.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
   
-//   console.log('Connected to the SQLite database.');
-// });
+  console.log('Connected to the SQLite database.');
+});
 
-// db.serialize(() => {
-//   // Create the users table if it doesn't exist
+db.serialize(() => {
+  // Create the users table if it doesn't exist
   
-// });
+});
 
 
 
