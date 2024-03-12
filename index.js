@@ -57,3 +57,19 @@ const authenticateToken = (req, res, next) => {
 app.get('/protected', authenticateToken, (req, res) => {
   res.json({ message: 'This is a protected route, accessible only with a valid token.' });
 });
+
+
+/***************************************
+ *
+ *
+ *
+ *
+ * Do not change any code below this line
+ *
+ *
+ *
+ ****************************************/
+
+app.get('/', (req, res) => {
+	res.status(200).send('Success')
+})
